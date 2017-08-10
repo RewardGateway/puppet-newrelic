@@ -568,6 +568,20 @@ newrelic.transaction_tracer.custom = "<%= @newrelic_ini_transaction_tracer_custo
 newrelic.framework = "<%= @newrelic_ini_framework %>"
 <%- end -%>
 
+; Setting: newrelic.error_collector.ignore_exceptions
+; Type   : string
+; Scope  : per-directory
+; Default: none
+; Info   : A comma separated list of fully-qualified exception class names that the agent should ignore.
+;           When an unhandled exception occurs, the agent will perform the equivalent of $exception instanceof
+;           Class for each of the classes listed. If any of those checks returns true, the agent will not record an ;           exception.
+;           Depending on the supported PHP release, these values are equivalent to disabling exception reporting:
+;           Supported PHP 5 versions: newrelic.error_collector.ignore_exceptions = Exceptions
+;           Supported PHP 7 versions: newrelic.error_collector.ignore_exceptions = Throwable
+<%- if @newrelic_error_collector_ignore_exceptions -%>
+newrelic.error_collector.ignore_exceptions = '<%=@newrelic_error_collector_ignore_exceptions%>'
+<%- end -%>
+
 ;
 ; Setting: newrelic.webtransaction.name.remove_trailing_path
 ; Type   : boolean
