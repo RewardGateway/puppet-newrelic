@@ -579,7 +579,7 @@ newrelic.framework = "<%= @newrelic_ini_framework %>"
 ;           Supported PHP 5 versions: newrelic.error_collector.ignore_exceptions = Exceptions
 ;           Supported PHP 7 versions: newrelic.error_collector.ignore_exceptions = Throwable
 <%- if @newrelic_error_collector_ignore_exceptions -%>
-newrelic.error_collector.ignore_exceptions = '<%=@newrelic_error_collector_ignore_exceptions%>'
+newrelic.error_collector.ignore_exceptions = '<%= @newrelic_error_collector_ignore_exceptions %>'
 <%- end -%>
 
 ;
