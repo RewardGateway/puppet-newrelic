@@ -74,6 +74,7 @@ class newrelic::agent::php (
   $newrelic_daemon_proxy                                 = undef,
   $newrelic_daemon_collector_host                        = undef,
   $newrelic_daemon_auditlog                              = undef,
+  $newrelic_error_collector_ignore_exceptions            = 'Phprest\Exception\Exception',
 ) inherits ::newrelic {
 
   if ! $newrelic_license_key {
